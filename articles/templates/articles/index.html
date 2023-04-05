@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="index-container">
+        <div class="box">index</div>
+        <img src="{% static 'img/blossom.jpg' %}" alt="블러썸" style="width:150px; height:100px;">
+        <div class="box">
+        {% for article in articles %}
+            {{article.id}}
+            <a href="{% url 'articles:detail' article.id %}">{{article.title}}</a>
+            {{article.updated_at}}
+            <hr>
+        {% endfor %}
+        </div>
+    <a href="{% url 'articles:create' %}">새 글 작성하기</a>
+    </div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="update-container">
+        <div class="box">renew</div>
+        <div class="box">
+        <form action="{% url 'articles:update' article.id %}" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="수정하기">
+        </form>
+        </div>
+        <a href="{% url 'articles:index' %}">이전으로 돌아가기</a>
+    </div>
+{% endblock content %}

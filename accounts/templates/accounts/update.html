@@ -1,0 +1,10 @@
+{% extends 'auth_base.html' %}
+
+{% block content %}
+<h2>회원정보 변경을 진행해주세요</h2>
+<form action="{% url 'accounts:update' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="변경하기">
+</form>
+{% endblock content %}

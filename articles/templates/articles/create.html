@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="create-container">
+        <div class="box">new article</div>
+        <div class="box">
+        <form action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="작성하기">
+        </form>
+        </div>
+        <a href="{% url 'articles:index' %}">이전으로 돌아가기</a>
+    </div>
+{% endblock content %}

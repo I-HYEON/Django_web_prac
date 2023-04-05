@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="detail-container">
+        <div class="box">detail</div>
+        <div class="box">
+            <h3>제목: {{article.title}}</h3>
+            <h3>내용: {{article.contents}}</h3>
+            <h3>장르:{{article.category}}</h3>
+            <h3><img src="{{article.image.url}}" alt="왜안뜰까"></h3>
+        </div>
+    <a href="{% url 'articles:update' article.id %}">이 글 수정하기</a>
+    <a href="{% url 'articles:delete' article.id %}">이 글 삭제하기</a>        
+    <a href="{% url 'articles:index' %}">이전으로 돌아가기</a>
+    </div>
+{% endblock content %}

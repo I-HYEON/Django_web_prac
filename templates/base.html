@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="{% static 'img/notebook.jpg' %}" alt="노트북이미지" style="width:200px; height:150px">
+    {% if user.is_authenticated %}
+        <p>안녕하세요, {{user}}님!</p>
+        <a href="{% url 'accounts:logout' %}">logout</a>
+        <a href="{% url 'accounts:update' %}">회원정보변경</a>
+        <a href="{% url 'accounts:delete' %}">회원탈퇴</a>
+    {% else %}
+        <a href="{% url 'accounts:login' %}">login</a>
+        <a href="{% url 'accounts:signup' %}">signup</a>
+    {% endif %}
+    <h1>취미를 기록하자</h1>
+    {% block content %}{% endblock content %}
+</body>
+</html>
